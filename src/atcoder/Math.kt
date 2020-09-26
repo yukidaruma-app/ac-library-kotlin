@@ -3,11 +3,11 @@
 package atcoder
 
 // return x ^ n mod m
-fun pow_mod(x: Long, n: Long, m: Int): Long{
+fun powMod(x: Long, n: Long, m: Int): Long {
     assert(0 <= n && 1 <= m)
-    if(m == 1) return 0
+    if (m == 1) return 0
     var r = 1L
-    var y = safe_mod(x, m.toLong())
+    var y = safeMod(x, m.toLong())
     var mn = n
     while (0 < mn) {
         if (mn.and(1L) == 1L) r = r * y % m
@@ -15,4 +15,12 @@ fun pow_mod(x: Long, n: Long, m: Int): Long{
         mn = mn.shr(1)
     }
     return r
+}
+
+// Constraints: gcd(x, m) == 1
+fun invMod(x: Long, m: Long): Long {
+    assert(1 <= m)
+    var z = invGcd(x, m)
+    assert(z.first == 1L)
+    return z.second
 }
