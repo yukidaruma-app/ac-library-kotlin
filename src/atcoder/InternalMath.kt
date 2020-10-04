@@ -1,3 +1,5 @@
+// Contains the original internal_math and internal_bit
+
 package atcoder
 
 fun safeMod(x: Long, m: Long): Long {
@@ -39,4 +41,10 @@ fun invGcd(a: Long, b: Long): Pair<Long, Long> {
 
     if (m0 < 0) m0 += b / s
     return s to m0
+}
+
+fun ceilPow2(n: Long): Int {
+    var x = 0
+    while (1L.shl(x) < n) x++
+    return x
 }
